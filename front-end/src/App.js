@@ -5,6 +5,7 @@ import MessageStandalone from './MessageStandalone'
 import Home from './Home'
 import Header from './Header'
 import Footer from './Footer'
+import About from './About'
 
 const App = props => {
   return (
@@ -19,11 +20,15 @@ const App = props => {
             {/* a route to see a list of all messages */}
             <Route path="/messages" element={<Messages />} />
 
+            {/* a route for the about me page */}
+            <Route path="/about" element={<About />} />
+
             {/* a route for just a single message, where the id of the desired message is passed as a parameter */}
             <Route
               path="/messages/:messageId"
               element={<MessageStandalone />}
             />
+
           </Routes>
         </main>
         <Footer />

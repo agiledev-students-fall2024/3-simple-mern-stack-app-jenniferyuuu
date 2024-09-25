@@ -37,3 +37,26 @@ html {
 .App-link {
   color: #61dafb;
 }
+
+/* styles about me page */
+#about{
+  text-align: left;
+  padding: 60px;
+}
+
+#title{
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#space{
+  padding: 10px;
+}
+
+#resize{
+  width: 200px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -57,6 +57,44 @@ app.get('/messages/:messageId', async (req, res) => {
     })
   }
 })
+
+// a route to fetch 'about me' content 
+app.get('/about', async (req, res) => {
+  // load all text
+  try {
+    const info = ["Hello, my name is Jennifer Yu. I am currently a junior at NYU who is \
+    majoring in computer science and minoring in web programming and applications. \
+    I chose to pursue in computer science because I was interested in coding after \
+    taking a computer science class in high school. At that time, I realized how a few \
+    simple lines of code can create something amazing and how problem-solving was crucial \
+    to this field. Since I enjoy creating applications, I joined the Agile Software \
+    Development & DevOps class. From this experience, I would like to gain new software development \
+    skills and create a piece of work that I am proud of.", 
+    
+    "Some hobbies that I have are traveling, cooking, playing games (both video and board games), and listening to music. \
+    I particularly like traveling because it is fascinating to visit countries and cities I have never been before while \
+    trying new food and experiencing different cultures. One recent place I have visited is Vietnam (Hanoi), which had a completely \
+    different atmosphere to advanced cities. I also enjoy cooking, playing games, and listening to music because they all \
+    help me relax and keep my mind off any stress.", 
+    
+    "One interesting fact about me is that I enjoy drinking bubble tea and milk tea a lot. I have probably tried over 20 different \
+    shops since I am always tempted to try a different shop when it opens. One of my favorite shops is called Teado, which is \
+    located in NYC Chinatown. My bubble tea addiction explains why I also have a sweet tooth for any kind of desserts—from cake to ice cream."]
+  
+    res.json({
+      info: info,
+      image: '/jennifer.jpg',
+      status: 'all good',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'failed to retrieve messages from the database',
+    })
+  }
+})
+
 // a route to handle logging out users
 app.post('/messages/save', async (req, res) => {
   // try to save the message to the database
